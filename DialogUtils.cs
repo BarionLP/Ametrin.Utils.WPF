@@ -13,4 +13,16 @@ public static class DialogUtils {
             RestoreDirectory = false,
         };
     }
+    
+    public static SaveFileDialog SaveFileDialog(string title = "Save File", string filterDescription = "All files", string extension = "*", string path = "") {
+        return new SaveFileDialog {
+            Title = title,
+            InitialDirectory = path,
+            DefaultExt = extension,
+            Filter = $"{filterDescription} (*.{extension})|*.{extension}",
+            CheckPathExists = false,
+            RestoreDirectory = false,
+            AddExtension = true,
+        };
+    }
 }
