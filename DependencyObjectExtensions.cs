@@ -36,4 +36,13 @@ public static class DependencyObjectExtensions {
 
         return null;
     }
+
+    public static T FindAncestorOrSelf<T>(this DependencyObject obj) where T : DependencyObject {
+        while(obj is not null) {
+            if(obj is T objTyped)
+                return objTyped;
+            obj = VisualTreeHelper.GetParent(obj);
+        }
+        return null!;
+    }
 }
