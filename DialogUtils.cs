@@ -1,28 +1,28 @@
-﻿using Microsoft.Win32;
+﻿using Ametrin.Utils.WPF.FileDialogs;
+using System;
 
-namespace Ametrin.Utils.WPF; 
+namespace Ametrin.Utils.WPF;
 public static class DialogUtils {
+    
+    [Obsolete]
     public static OpenFileDialog GetFileDialog(string title = "Select File", string filterDescription = "All files", string extension = "*", string path = "", bool multiSelect = false) {
         return new OpenFileDialog {
             Title = title,
             InitialDirectory = path,
-            DefaultExt = extension,
-            Filter = $"{filterDescription} (*.{extension})|*.{extension}",
             Multiselect = multiSelect,
             CheckPathExists = true,
             RestoreDirectory = false,
-        };
+        }.AddExtensionFilter(filterDescription, extension);
     }
-    
-    public static SaveFileDialog SaveFileDialog(string title = "Save File", string filterDescription = "All files", string extension = "*", string path = "") {
+
+    [Obsolete]
+    public static SaveFileDialog SaveFileDialog(string title = "Save File", string filterDescription = "All Files", string extension = "*", string path = "") {
         return new SaveFileDialog {
             Title = title,
             InitialDirectory = path,
-            DefaultExt = extension,
-            Filter = $"{filterDescription} (*.{extension})|*.{extension}",
-            CheckPathExists = false,
+            DefaultExtension = extension,
             RestoreDirectory = false,
-            AddExtension = true,
-        };
+        }.AddExtensionFilter(filterDescription, extension);
     }
+
 }
