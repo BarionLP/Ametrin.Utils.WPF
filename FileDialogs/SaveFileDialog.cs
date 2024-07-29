@@ -38,7 +38,7 @@ public sealed class SaveFileDialog : IFileDialog {
     }
 
     public SaveFileDialog AddExtensionFilter(NonEmptyString description, NonEmptyString extension) => AddFilter(FileFilter.CreateFromExtension(description, extension));
-    public SaveFileDialog AddFilter(NonEmptyString description, NonEmptyString filter) => AddFilter(FileFilter.Create(description, filter));
+    public SaveFileDialog AddFilter(NonEmptyString description, NonEmptyString pattern) => AddFilter(FileFilter.Create(description, pattern));
     public SaveFileDialog AddFilter(FileFilter filter) {
         _filters.Add(filter);
         return this;
