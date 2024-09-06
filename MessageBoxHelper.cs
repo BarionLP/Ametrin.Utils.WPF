@@ -3,11 +3,21 @@
 namespace Ametrin.Utils.WPF;
 
 public static class MessageBoxHelper {
-    public static MessageBoxResult ShowError(string error, string caption = "Error") 
-        => MessageBox.Show(error, caption, MessageBoxButton.OK, MessageBoxImage.Error);
-    
-    public static MessageBoxResult ShowSuccess(string error, string caption = "Success", Window? owner = null) 
-        => owner is null 
-            ? MessageBox.Show(error, caption, MessageBoxButton.OK, MessageBoxImage.Information) 
-            : MessageBox.Show(owner, error, caption, MessageBoxButton.OK, MessageBoxImage.Information);
+    public static MessageBoxResult ShowError(string error, string caption = "Error", Window? owner = null)
+        => Show(error, caption, MessageBoxButton.OK, MessageBoxImage.Error, owner);
+
+
+    public static MessageBoxResult ShowWaring(string warning, string caption = "Warning", Window? owner = null)
+        => Show(warning, caption, MessageBoxButton.OK, MessageBoxImage.Warning, owner);
+
+    public static MessageBoxResult ShowSuccess(string info, string caption = "Success", Window? owner = null)
+        => Show(info, caption, MessageBoxButton.OK, MessageBoxImage.Information, owner);
+
+    public static MessageBoxResult Ask(string question, string caption = "?", MessageBoxImage icon = MessageBoxImage.Question, Window? owner = null)
+        => Show(question, caption, MessageBoxButton.YesNo, icon, owner);
+
+    public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button, MessageBoxImage icon, Window? owner = null)
+        => owner is null
+            ? MessageBox.Show(messageBoxText, caption, button, icon)
+            : MessageBox.Show(owner, messageBoxText, caption, button, icon);
 }
