@@ -1,6 +1,7 @@
 ﻿namespace Ametrin.Utils.WPF.FileDialogs;
 
-public sealed record FileFilter(NonEmptyString Description, NonEmptyString Pattern) {
+public sealed record FileFilter(NonEmptyString Description, NonEmptyString Pattern)
+{
     public static FileFilter AllFiles { get; } = new("All Files", "*.*");
     public override string ToString() => $"{Description} ({Pattern})|{Pattern}";
 

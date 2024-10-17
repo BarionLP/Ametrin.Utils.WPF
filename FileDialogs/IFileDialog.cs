@@ -3,7 +3,8 @@ using System.IO;
 
 namespace Ametrin.Utils.WPF.FileDialogs;
 
-public interface IFileDialog {
+public interface IFileDialog
+{
     public string Title { get; }
     public bool RestoreDirectory { get; }
     public string InitialDirectory { get; }
