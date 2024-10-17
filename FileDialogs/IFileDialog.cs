@@ -1,4 +1,4 @@
-﻿using Ametrin.Utils.Optional;
+﻿using Ametrin.Optional;
 using System.IO;
 
 namespace Ametrin.Utils.WPF.FileDialogs;

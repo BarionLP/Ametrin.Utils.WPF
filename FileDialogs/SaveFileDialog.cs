@@ -1,4 +1,4 @@
-﻿using Ametrin.Utils.Optional;
+﻿using Ametrin.Optional;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -44,8 +44,8 @@ public sealed class SaveFileDialog : IFileDialog {
         return this;
     }
 
-    public Option<FileInfo> GetFileInfo() => GetPath().Map(path => new FileInfo(path));
-    public Option<string> GetPath() => ShowDialog() ? _dialog.FileName : Option<string>.None();
+    public Option<FileInfo> GetFileInfo() => GetPath().Select(path => new FileInfo(path));
+    public Option<string> GetPath() => ShowDialog() ? _dialog.FileName : default;
 
     private bool ShowDialog() {
         if(_filters.Count > 0) {
