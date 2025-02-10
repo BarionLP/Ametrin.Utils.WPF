@@ -54,7 +54,7 @@ public sealed class OpenFileDialog : IFileDialog
         return this;
     }
 
-    public Option<FileInfo> GetFileInfo() => GetPath().Select(path => new FileInfo(path));
+    public Option<FileInfo> GetFileInfo() => GetPath().Map(path => new FileInfo(path));
     public Option<string> GetPath() => ShowDialog() ? _dialog.FileName : default;
 
     public IEnumerable<FileInfo> GetFileInfos() => GetPaths().Select(path => new FileInfo(path));
