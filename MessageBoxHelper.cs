@@ -7,7 +7,6 @@ public static class MessageBoxHelper
     public static MessageBoxResult ShowError(string error, string caption = "Error", Window? owner = null)
         => Show(error, caption, MessageBoxButton.OK, MessageBoxImage.Error, owner);
 
-
     public static MessageBoxResult ShowWaring(string warning, string caption = "Warning", Window? owner = null)
         => Show(warning, caption, MessageBoxButton.OK, MessageBoxImage.Warning, owner);
 
